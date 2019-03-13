@@ -68,7 +68,6 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 		myFriendListJPanel=new JPanel(new GridLayout(MYFRIENDCOUNT-1,1));//Íø¸ñ²¼¾Ö
 		for(int i=1;i<MYFRIENDCOUNT;i++){
 			myFriendJLabel[i]=new JLabel(i+"",new ImageIcon("images/yy0.gif"),JLabel.LEFT);
-			myFriendJLabel[i].addMouseListener(this);
 			myFriendListJPanel.add(myFriendJLabel[i]);
 		}
 		
@@ -171,28 +170,18 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		if(arg0.getClickCount()==2){
-			JLabel jlbl=(JLabel)arg0.getSource();
-			String receiver=jlbl.getText();
-			new FriendChat(this.userName,receiver);
-			
-		}
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
-		JLabel jlbl1=(JLabel)arg0.getSource();
-		jlbl1.setForeground(Color.red);
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void mouseExited(MouseEvent arg0) {
-		JLabel jlbl1=(JLabel)arg0.getSource();
-		jlbl1.setForeground(Color.BLACK);
 		// TODO Auto-generated method stub
 		
 	}

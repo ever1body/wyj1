@@ -37,8 +37,7 @@ public class ClientLogin extends JFrame implements ActionListener{//类名：Client
 		jlbl4=new JLabel("忘记密码",JLabel.CENTER);
 		jlbl4.setForeground(Color.BLUE);
 		jlbl5=new JLabel("申请密码保护",JLabel.CENTER);
-		jtf1=new JTextField();
-		jpf1=new JPasswordField();
+		jtf1=new JTextField();jpf1=new JPasswordField();
 		jb4=new JButton(new ImageIcon("images/clear.gif"));
 		jcb1=new JCheckBox("隐身登录");
 		jcb2=new JCheckBox("记住密码");
@@ -61,7 +60,7 @@ public class ClientLogin extends JFrame implements ActionListener{//类名：Client
 		
 		this.setSize(350,240);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setLocationRelativeTo(null);
+		this.setLocationRelativeTo(arg0);
 		this.setVisible(true);
 		
 	}

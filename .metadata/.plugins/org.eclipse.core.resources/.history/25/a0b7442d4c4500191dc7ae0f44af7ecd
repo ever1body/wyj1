@@ -54,7 +54,6 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 	
 	String userName;//成员变量
 	public FriendList(String userName){//形参
-		this.userName=userName;
 		//创建第一张卡片
 		myFriendPanel=new JPanel(new BorderLayout());//布局的问题，边界布局
 		//System.out.println(myFriendPanel.getLayout());
@@ -68,7 +67,6 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 		myFriendListJPanel=new JPanel(new GridLayout(MYFRIENDCOUNT-1,1));//网格布局
 		for(int i=1;i<MYFRIENDCOUNT;i++){
 			myFriendJLabel[i]=new JLabel(i+"",new ImageIcon("images/yy0.gif"),JLabel.LEFT);
-			myFriendJLabel[i].addMouseListener(this);
 			myFriendListJPanel.add(myFriendJLabel[i]);
 		}
 		
@@ -145,8 +143,6 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 		this.add(myStrangerPanel, "2");
 		//this.add(myblackPanel,"3");
 		this.setSize(200, 500);
-		this.setTitle(userName+"的好友列表");
-		this.setIconImage(new ImageIcon("images/yy3.gif").getImage());
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
@@ -156,8 +152,7 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-    //FriendList friendList=new FriendList("pdh");
-		
+    FriendList friendList=new FriendList();
 	}
 
 	@Override
@@ -171,28 +166,18 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		if(arg0.getClickCount()==2){
-			JLabel jlbl=(JLabel)arg0.getSource();
-			String receiver=jlbl.getText();
-			new FriendChat(this.userName,receiver);
-			
-		}
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
-		JLabel jlbl1=(JLabel)arg0.getSource();
-		jlbl1.setForeground(Color.red);
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void mouseExited(MouseEvent arg0) {
-		JLabel jlbl1=(JLabel)arg0.getSource();
-		jlbl1.setForeground(Color.BLACK);
 		// TODO Auto-generated method stub
 		
 	}
