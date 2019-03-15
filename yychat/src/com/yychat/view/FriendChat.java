@@ -1,12 +1,13 @@
 package com.yychat.view;
 
 import java.awt.Color;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
 public class FriendChat extends JFrame implements ActionListener{
-
+	
 	JScrollPane jsp;
 	JTextArea jta;
 	
@@ -16,7 +17,6 @@ public class FriendChat extends JFrame implements ActionListener{
 	
 	
 	public FriendChat(String sender,String receiver){
-		
 		jta=new JTextArea();
 		jta.setEditable(false);
 		jta.setForeground(Color.red);
@@ -30,27 +30,27 @@ public class FriendChat extends JFrame implements ActionListener{
 		jp.add(jtf);jp.add(jb);
 		this.add(jp,"South");
 		
-		this.setSize(350,240);
+		this.setSize(350, 240);
 		this.setTitle(sender+"正在和"+receiver+"聊天");
 		this.setLocationRelativeTo(null);
-		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		
-		
 	}
-	
-	public static void main(String[] args) {
-		
-		// TODO Auto-generated method stub
 
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//     FriendChat friendChat=new FriendChat();
 	}
+
+
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		if(arg0.getSource()==jb)
-			jta.append(jtf.getText()+"\r\n");
+	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+		if(e.getSource()==jb)
+			jta.append(jtf.getText()+"\r\n");
 	}
 
 }
