@@ -17,8 +17,7 @@ public class StartServer {
 		try {
 			ss=new ServerSocket(3456);//服务器端口监听3456
 			System.out.println("服务器已经启动，监听3456端口...");
-			while(true){//多线程问题
-				s=ss.accept();//等待客户端建立连接
+			s=ss.accept();//等待客户端建立连接
 			System.out.println(s);//输出连接Socket对象
 			
 			//字节输入流包装对象输入流
@@ -41,9 +40,6 @@ public class StartServer {
 			
 			ObjectOutputStream oos=new ObjectOutputStream(s.getOutputStream());
 			oos.writeObject(mess);
-				
-			}
-			
 			
 		} catch (IOException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
