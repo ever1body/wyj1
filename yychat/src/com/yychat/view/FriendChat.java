@@ -2,8 +2,13 @@ package com.yychat.view;
 
 import java.awt.Color;
 import java.awt.event.*;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 import javax.swing.*;
+
+import com.yychat.controller.ClientConnetion;
+import com.yychat.model.Message;
 
 public class FriendChat extends JFrame implements ActionListener{
 
@@ -14,8 +19,11 @@ public class FriendChat extends JFrame implements ActionListener{
 	JTextField jtf;
 	JButton jb;
 	
-	
+	String sender;
+	String receiver;
 	public FriendChat(String sender,String receiver){
+		this.sender=sender;
+		this.receiver=receiver;
 		
 		jta=new JTextArea();
 		jta.setEditable(false);
@@ -47,10 +55,30 @@ public class FriendChat extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		if(arg0.getSource()==jb)
+		if(arg0.getSource()==jb){
+			String content=jtf.getText();
 			jta.append(jtf.getText()+"\r\n");
-		// TODO Auto-generated method stub
-		
+			
+			//发送Message对象到服务器
+			Message mess=new Message();
+			mess.setSender(sender);
+			mess.setReceiver(receiver);
+			mess.setContent(content);
+			//mess.setMessageType("2");//common聊天的普通信息
+			mess.setMessageType(Message.message_Common);
+			ObjectOutputStream oos;
+			try {
+				oos=new ObjectOutputStream(ClientConnetion.s.getOutputStream());
+			    oos.writeObject(mess);
+			    
+			    //
+			    
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}			
+		}
+		// TODO Auto-generated method stub		
 	}
 
 }

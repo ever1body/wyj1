@@ -9,10 +9,11 @@ import com.yychat.model.Message;
 import com.yychat.model.User;
 
 public class ClientConnetion {
-    Socket s;
+    public static Socket s;//静态成员变量
 	public ClientConnetion(){
 		try {//异常处理结构
 			s=new Socket("127.0.0.1",3456);//本机地址，回测地址
+            System.out.println("客户端Socket"+s);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
