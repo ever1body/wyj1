@@ -42,7 +42,7 @@ public class StartServer {
 			    hmSocket.put(userName, s);
 			
 			    //如何接收客户端聊天信息
-			    new ServerReceiverThread(s,hmSocket).start();
+			    new ServerReceiverThread(s).start();
 			}
 			else{				
 				mess.setMessageType(Message.message_LoginFailure);//验证不通过
