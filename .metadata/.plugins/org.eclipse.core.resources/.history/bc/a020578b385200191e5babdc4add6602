@@ -29,7 +29,6 @@ public class ClientConnetion {
     	try {
 			oos=new ObjectOutputStream(s.getOutputStream());//把字节输出流对象包装对象输出流对象
 			oos.writeObject(user);
-			System.out.println("发送User：用户名为"+user.getUserName()+"密码为"+user.getPassWord());
 			
 			ObjectInputStream ois=new ObjectInputStream(s.getInputStream());
 			mess=(Message)ois.readObject();

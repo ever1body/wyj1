@@ -88,18 +88,13 @@ public class FriendChat extends JFrame implements ActionListener,Runnable{//÷ª‘ 
 	public void run() { 
 		ObjectInputStream ois;
 		Message mess;
-		
-			while(true){
-			try {	
-				ois = new ObjectInputStream(ClientConnetion.s.getInputStream());
+		try {
+			ois = new ObjectInputStream(ClientConnetion.s.getInputStream());
 			mess=(Message)ois.readObject();
 	    jta.append(mess.getSender()+"∂‘"+mess.getReceiver()+"Àµ"+mess.getContent()+"\r\n");
-			
 		} catch (IOException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-			}	
-			
 		
 	}
 
