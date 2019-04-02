@@ -40,7 +40,7 @@ public class ClientConnetion {
 			
 			//登陆成功保存Socket对象到hmSocket中
 			if(mess.getMessageType().equals(Message.message_LoginSuccess)){
-				hmSocket.put(user.getUserName(),s);
+				homSocket.put(user.getUserName(),s);
 				new ClientReceiverThread(s).start();
 			}
 		} catch (IOException | ClassNotFoundException e) {
