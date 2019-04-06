@@ -179,8 +179,7 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 			String receiver=jlbl.getText();
 			//new FriendChat(this.userName,receiver);
 			//new Thread(new FriendChat(this.userName,receiver)).start();
-		    FriendChat1 friendChat=new FriendChat1(this.userName,receiver);
-		    hmFriendChat1.put(userName+"to"+receiver,friendChat);
+			new FriendChat1(this.userName,receiver);
 		}
 		// TODO Auto-generated method stub
 		
