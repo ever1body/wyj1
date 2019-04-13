@@ -24,22 +24,14 @@ public class ClientReceiverThread extends Thread{
 			mess=(Message)ois.readObject();//等待Server发送Message,阻塞
 			String chatMessageString=(mess.getSender()+"对"+mess.getReceiver()+"说"+mess.getContent()+"\r\n");
 			System.out.println(chatMessageString);
-			
-			if(mess.getMessageType().equals(Message.message_Common)){
-				//希望聊天信息在好友的聊天界面上显示出来
+			//希望聊天信息在好友的聊天界面上显示出来
 			//1.拿到要显示聊天信息的FriendChat对象
 			FriendChat1 friendChat1=(FriendChat1)FriendList.hmFriendChat1.get(mess.getReceiver()+"to"+mess.getSender());
 			//2.把聊天信息在JTextArea上显示
 			friendChat1.appendJta(chatMessageString);
-			}
-			
-			
-			//第3步接收到服务器发送来的在线好友消息，激活对应图标
-			if(mess.getMessageType().equals(Message.message_OnlineFriend)){
-				
-			}
 			
 		} catch (IOException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		  
