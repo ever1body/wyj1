@@ -43,7 +43,7 @@ public class ServerReceiverThread extends Thread{
 				Set friendSet=StartServer.hmSocket.keySet();
 				Iterator it=friendSet.iterator();//迭代器，目的是对friendSet集合中的元素进行遍历
 				String friendName;
-				String friendString=" ";
+				String friendString="";
 				while(it.hasNext()){
 					friendName=(String)it.next();
 					if(!friendName.equals(mess.getSender()))//排除自己

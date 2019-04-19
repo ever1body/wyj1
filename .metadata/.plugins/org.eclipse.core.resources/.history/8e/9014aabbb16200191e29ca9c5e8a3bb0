@@ -71,8 +71,8 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 		myFriendListJPanel=new JPanel(new GridLayout(MYFRIENDCOUNT-1,1));//网格布局
 		for(int i=1;i<MYFRIENDCOUNT;i++){
 			myFriendJLabel[i]=new JLabel(i+"",new ImageIcon("images/yy0.gif"),JLabel.LEFT);
-			myFriendJLabel[i].setEnabled(false);
-			if(Integer.parseInt(userName)==i) myFriendJLabel[i].setEnabled(true);
+//			myFriendJLabel[i].setEnabled(false);
+//			if(Integer.parseInt(userName)==i) myFriendJLabel[i].setEnabled(true);
 			myFriendJLabel[i].addMouseListener(this);
 			myFriendListJPanel.add(myFriendJLabel[i]);
 		}
@@ -163,15 +163,6 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 		// TODO Auto-generated method stub
     //FriendList friendList=new FriendList("pdh");
 		
-	}
-	
-	public void setEnabledOnkineFriend(String onlineFriend){
-		//激活在线好友图标
-		String[] friendName=onlineFriend.split(" ");
-		int count=friendName.length;
-		for(int i=1;i<count;i++){
-			myFriendJLabel[Integer.parseInt(friendName[i])].setEnabled(true);
-		}
 	}
 
 	@Override

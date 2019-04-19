@@ -15,7 +15,7 @@ import com.yychat.model.Message;
 import com.yychat.model.User;
 
 public class ClientLogin extends JFrame implements ActionListener{//类名：ClientLogin
-	public static HashMap hmFriendList=new HashMap<String,FriendList>();//创建保存FriendList对象的HashMap
+	public static HashMap hmFriendList=new HashMap<String,FriendList>();
 	//北部的组件
 	JLabel jlbl1;
 	
@@ -92,9 +92,7 @@ public class ClientLogin extends JFrame implements ActionListener{//类名：Client
 			//密码验证,密码是123456的话，验证成功，否则失败
 			Message mess=new ClientConnetion().loginValidate(user);
 			if(mess.getMessageType().equals(Message.message_LoginSuccess)){
-				FriendList friendList=new FriendList(userName);//创建好友列表对象之后
-				//保存friendList
-				hmFriendList.put(userName,friendList);
+				new FriendList(userName);
 				//第1步
 				//发送message_RequestOnlineFriend信息给服务器
 				Message mess1=new Message();

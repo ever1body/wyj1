@@ -47,7 +47,7 @@ public class ServerReceiverThread extends Thread{
 				while(it.hasNext()){
 					friendName=(String)it.next();
 					if(!friendName.equals(mess.getSender()))//排除自己
-					friendString=friendString+friendName+" ";
+					friendString=friendName+" "+friendString;
 				}
 				System.out.println("全部好友的名字："+friendString);
 				
@@ -69,8 +69,8 @@ public class ServerReceiverThread extends Thread{
 			}
 		
 	}
-	private void sendMessage(Socket s,Message mess) throws IOException {
-		oos=new ObjectOutputStream(s.getOutputStream());
+	private void sendMessage(Socket s1,Message mess) throws IOException {
+		oos=new ObjectOutputStream(s1.getOutputStream());
 			oos.writeObject(mess);// 转达Massage
 	}
 }

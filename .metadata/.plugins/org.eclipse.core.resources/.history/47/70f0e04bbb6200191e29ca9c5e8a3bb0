@@ -164,15 +164,6 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
     //FriendList friendList=new FriendList("pdh");
 		
 	}
-	
-	public void setEnabledOnkineFriend(String onlineFriend){
-		//激活在线好友图标
-		String[] friendName=onlineFriend.split(" ");
-		int count=friendName.length;
-		for(int i=1;i<count;i++){
-			myFriendJLabel[Integer.parseInt(friendName[i])].setEnabled(true);
-		}
-	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {

@@ -169,7 +169,7 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 		//激活在线好友图标
 		String[] friendName=onlineFriend.split(" ");
 		int count=friendName.length;
-		for(int i=1;i<count;i++){
+		for(int i=0;i<count;i++){
 			myFriendJLabel[Integer.parseInt(friendName[i])].setEnabled(true);
 		}
 	}
