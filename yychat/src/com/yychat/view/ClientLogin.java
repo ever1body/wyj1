@@ -100,7 +100,7 @@ public class ClientLogin extends JFrame implements ActionListener{//类名：Client
 				Message mess1=new Message();
 				mess1.setSender(userName);
 				mess1.setReceiver("Server");
-				mess1.setMessageType(Message.message_RequestOnlineFriend);//设置信息类型
+				mess1.setMessageType(Message.message_RequestOnlineFriend);//设置信息类型,获取哪些好友在线
 				Socket s=(Socket)ClientConnetion.hmSocket.get(userName);
 				ObjectOutputStream oos;
 				try {

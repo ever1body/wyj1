@@ -39,8 +39,16 @@ public class ClientReceiverThread extends Thread{
 			if(mess.getMessageType().equals(Message.message_OnlineFriend)){
 				System.out.println("在线好友:"+mess.getContent());
 				FriendList friendList=(FriendList)ClientLogin.hmFriendList.get(mess.getReceiver());
-				friendList.setEnabledOnkineFriend(mess.getContent());
+				friendList.setEnabledOnlineFriend(mess.getContent());
 				
+			}
+			
+			//激活新上线好友图标
+			//2.其他用户利用收到的消息更新图标
+			if(mess.getMessageType().equals(Message.message_NewOnLineFriend)){
+				System.out.println("新上线用户的名字:"+mess.getContent());
+				FriendList friendList=(FriendList)ClientLogin.hmFriendList.get(mess.getReceiver());
+				//friendList.setEnabledNewOnlineFriend(mess.getContent());
 			}
 			
 		} catch (IOException | ClassNotFoundException e) {

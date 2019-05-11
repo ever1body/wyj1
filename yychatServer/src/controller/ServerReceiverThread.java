@@ -45,7 +45,7 @@ public class ServerReceiverThread extends Thread{
 				String friendName;
 				String friendString=" ";
 				while(it.hasNext()){
-					friendName=(String)it.next();
+					friendName=(String)it.next();//判断是否还有下一个好友
 					if(!friendName.equals(mess.getSender()))//排除自己
 					friendString=friendString+friendName+" ";
 				}
